@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/listmain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rectangle">
+
+        <RelativeLayout
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/w_itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:paddingLeft="2dp"
+                android:text="SS00710-0001"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/Ucode"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="5dp"
+                android:text="หมายเหตุ :"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/w_remark_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/textView53"
+                android:layout_marginStart="80dp"
+                android:paddingLeft="5dp"
+                android:text="26/07/2018"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/w_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/itemname"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="38dp"
+                android:layout_toEndOf="@+id/w_ucode"
+                android:text="text"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/w_ucode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/itemname"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="38dp"
+                android:text="text"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ucount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/w_date"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="38dp"
+                android:text="[ ครบรอบส่งคืน ]"
+                android:textColor="@color/colorRedNew"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/del_multi"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toStartOf="@+id/throw_item_to_washtag"
+                android:background="@drawable/check" />
+
+            <ImageView
+                android:id="@+id/del_multi_un"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="-2dp"
+                android:layout_toStartOf="@+id/throw_item_to_washtag"
+                android:background="@drawable/uncheck" />
+
+            <ImageView
+                android:id="@+id/w_btdel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="12dp"
+                android:layout_toStartOf="@+id/del_multi"
+                android:background="@android:drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/w_resterile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/w_btdel"
+                app:srcCompat="@drawable/ic_r_grey" />
+
+            <TextView
+                android:id="@+id/w_r_name"
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/itemqty"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/itemqty"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="-2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toStartOf="@+id/throw_item_to_washtag"
+                android:text=" [ 1 ] "
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/w_bt_note"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="7dp"
+                android:layout_toStartOf="@+id/w_resterile"
+                android:background="@drawable/ic_list_blue" />
+
+            <TextView
+                android:id="@+id/w_bt_risk"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="11dp"
+                android:layout_toStartOf="@+id/w_bt_note"
+                android:background="@drawable/ic_risk_icon_gray" />
+
+            <TextView
+                android:id="@+id/w_bt_ems"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="9dp"
+                android:layout_toStartOf="@+id/w_bt_risk"
+                android:background="@drawable/ic_stopwatchx64_gray2" />
+
+            <ImageView
+                android:id="@+id/throw_item_to_washtag"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ic_right_blue" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

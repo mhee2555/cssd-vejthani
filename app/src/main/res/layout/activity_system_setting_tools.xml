@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bluetab"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="1141dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_system_flase"
+                android:layout_width="570dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_master_cyanblue_noselect"
+                android:enabled="false"
+                android:paddingBottom="5dp"
+                android:text="กำหนดขอบเขตการใช้งาน "
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_system_true"
+                android:layout_width="570dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_master_cyanblue"
+                android:enabled="false"
+                android:paddingBottom="5dp"
+                android:text="กำหนดขอบเขตการใช้งาน "
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_user_true"
+                android:layout_width="571dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_master_cyanblue"
+                android:paddingBottom="5dp"
+                android:text="กำหนดสิทธิ์ผู้ใช้งาน"
+                android:layout_marginLeft="570dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_user_flase"
+                android:layout_width="571dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_master_cyanblue_noselect"
+                android:paddingBottom="5dp"
+                android:text="กำหนดสิทธิ์ผู้ใช้งาน"
+                android:layout_marginLeft="570dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageBack"
+        android:layout_width="201dp"
+        android:layout_height="84dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="13dp"
+        android:src="@drawable/bt_back" />
+
+    <LinearLayout
+        android:id="@+id/Li1"
+        android:layout_width="1075dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="100dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/L1"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw1"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text1_1"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L2"
+                    android:layout_below="@+id/L1"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw2"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text2_2"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L3"
+                    android:layout_below="@+id/L2"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw3"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text3_3"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L4"
+                    android:layout_below="@+id/L3"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw4"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text4_4"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L5"
+                    android:layout_below="@+id/L4"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw5"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text5_5"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L6"
+                    android:layout_below="@+id/L5"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no6"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw6"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text6_6"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L7"
+                    android:layout_below="@+id/L6"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no7"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text7"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw7"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text7_7"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/L8"
+                    android:layout_below="@+id/L7"
+                    android:layout_width="530dp"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/no8"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/text8"
+                        android:layout_width="370dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center|left"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/sw8"
+                        android:text="ปิด"
+                        android:textSize="16sp"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                    </Switch>
+
+                    <TextView
+                        android:id="@+id/text8_8"
+                        android:text="เปิด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="35dp"
+                        android:layout_height="40dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
