@@ -742,8 +742,7 @@
                                     android:maxLines="1"
                                     android:text="ผู้เตรียม"
                                     android:textColor="@color/colorWhite"
-                                    android:textSize="14dp"
-                                    android:visibility="gone"></TextView>
+                                    android:textSize="14dp"></TextView>
 
                                 <TextView
                                     android:layout_width="100dp"
@@ -752,11 +751,12 @@
                                     android:layout_marginRight="10dp"
                                     android:gravity="center_vertical"
                                     android:maxLines="1"
-                                    android:text="Loader"
+                                    android:text="ผู้ตรวจ"
                                     android:textColor="@color/colorWhite"
                                     android:textSize="14dp"></TextView>
 
                                 <TextView
+                                    android:id="@+id/textview_test_program"
                                     android:layout_width="100dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="30dp"
@@ -765,7 +765,8 @@
                                     android:maxLines="1"
                                     android:text="การทดสอบ"
                                     android:textColor="@color/colorWhite"
-                                    android:textSize="14dp"></TextView>
+                                    android:textSize="14dp"
+                                    android:visibility="gone"></TextView>
 
                                 <TextView
                                     android:layout_width="110dp"
@@ -802,8 +803,7 @@
                                     android:singleLine="true"
                                     android:textColor="#FFFFFF"
                                     android:textSize="14dp"
-                                    android:textStyle="bold"
-                                    android:visibility="gone" />
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/txt_usr_approve"
@@ -811,14 +811,14 @@
                                     android:layout_height="30dp"
                                     android:layout_alignParentStart="true"
                                     android:layout_centerVertical="true"
+                                    android:layout_marginLeft="150dp"
                                     android:background="@drawable/shape_qr_line_tr"
                                     android:gravity="center_vertical"
                                     android:paddingLeft="8dp"
                                     android:singleLine="true"
                                     android:textColor="#FFFFFF"
                                     android:textSize="14dp"
-                                    android:textStyle="bold"
-                                    android:visibility="gone" />
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/txt_usr_sterile"
@@ -848,7 +848,8 @@
                                     android:singleLine="true"
                                     android:textColor="#FFFFFF"
                                     android:textSize="14dp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
 
                                 <TextView
                                     android:id="@+id/txt_test_program"
@@ -863,7 +864,8 @@
                                     android:singleLine="true"
                                     android:textColor="#FFFFFF"
                                     android:textSize="14dp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
 
                                 <TextView
                                     android:id="@+id/OccupancyRate_Sterile"

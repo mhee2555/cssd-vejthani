@@ -272,6 +272,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             TextView txt_set_list = (TextView) findViewById(R.id.txt_set_list);
 
             txt_set_list.setLayoutParams(new LinearLayout.LayoutParams(120,LinearLayout.LayoutParams.WRAP_CONTENT));
+
         }
 
     }
