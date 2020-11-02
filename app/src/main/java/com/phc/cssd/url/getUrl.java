@@ -40,7 +40,7 @@ public class getUrl {
         return s;
         */
 //        return "http://poseintelligence.dyndns.biz:8181/cssd_test_itemcode/";
-//        return "http://poseintelligence.dyndns.biz:8181/cssd_siriraj/";
+        return "http://poseintelligence.dyndns.biz:8181/cssd_siriraj/";
 //        return "http://poseintelligence.dyndns.biz:8181/cssd_siriraj_dev/";
 //        return "http://poseintelligence.dyndns.biz:8181/cssd_siriraj_test/";
 //        return "http://poseintelligence.dyndns.biz:8181/cssd_vcy_test/";
@@ -49,7 +49,7 @@ public class getUrl {
 //        return "http://192.168.1.104/cssd_vcy_test/";
         // PRESENT
 //        return "http://poseintelligence.dyndns.biz/cssd_siriraj_dev/";
-        return "http://poseintelligence.dyndns.biz/cssd_siriraj_new/";
+//        return "http://poseintelligence.dyndns.biz/cssd_siriraj_new/";
     }
     // ----------------------------------------------------
     // Get Project Setting
