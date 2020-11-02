@@ -229,7 +229,6 @@ public class CssdNewItemStock extends Activity {
 
                             ArrayAdapter<ModelImportWashDetail> adapter;
 
-                            Log.d("KDJDKJ",radio_is_new.isChecked()+"");
                             if(radio_is_new.isChecked()) {
                                 adapter = new ImportNewItemStockAdapter(CssdNewItemStock.this, MODEL_NEW_ITEM_STOCK);
                             }else{
