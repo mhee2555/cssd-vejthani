@@ -276,6 +276,8 @@ public class CssdSterile extends AppCompatActivity {
     private List<ModelImportWashDetail> MODEL_IMPORT_WASH_DETAIL_NOT_PRINT;
 
     Dialog dialog_item_stock_detail_basket;
+    private TextView cnt_basket_list;
+    private Button btn_import_new_item_stock_to_basket;
 
     public void onDestroy() {
         super.onDestroy();
@@ -344,14 +346,14 @@ public class CssdSterile extends AppCompatActivity {
         if(ConfigProgram.pair_basket_2){
             LinearLayout lin_list_washtag = (LinearLayout) dialog_item_stock_detail_basket.findViewById(R.id.lin_list_washtag);
             lin_list_washtag.setVisibility(View.GONE);
-            btn_import_new_item_stock.setVisibility(View.GONE);
+            btn_import_new_item_stock_to_basket.setVisibility(View.GONE);
 
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     dp_to_px(114), dp_to_px(50));
             layoutParams.setMargins(dp_to_px(35), dp_to_px(585), dp_to_px(951), dp_to_px(20));
             pair_fin.setLayoutParams(layoutParams);
 
-           layoutParams = new RelativeLayout.LayoutParams(
+            layoutParams = new RelativeLayout.LayoutParams(
                     dp_to_px(70), dp_to_px(70));
             layoutParams.setMargins(dp_to_px(990), dp_to_px(572), dp_to_px(40), dp_to_px(13));
             btn_print_bk.setLayoutParams(layoutParams);
@@ -1683,12 +1685,14 @@ public class CssdSterile extends AppCompatActivity {
         basket_dialog_list_basket = (ListView) dialog_item_stock_detail_basket.findViewById(R.id.list_basket);
         basket_dialog_w_list = (ListView) dialog_item_stock_detail_basket.findViewById(R.id.list);
         basket_dialog_list_washtag = (ListView) dialog_item_stock_detail_basket.findViewById(R.id.list_washtag);
-
         btn_print_bk = (Button) dialog_item_stock_detail_basket.findViewById(R.id.btn_save);
-
         pair_fin = (Button) dialog_item_stock_detail_basket.findViewById(R.id.btn_cancel);
         final EditText edt_basket_code = (EditText) dialog_item_stock_detail_basket.findViewById(R.id.edt_basket_code);
         PairBasketBox_basket_Code = (TextView) dialog_item_stock_detail_basket.findViewById(R.id.bastek_name);
+        cnt_basket_list = (TextView) dialog_item_stock_detail_basket.findViewById(R.id.cnt_basket_list);
+        btn_import_new_item_stock_to_basket = (Button) dialog_item_stock_detail_basket.findViewById(R.id.btn_import_new_item_stock_to_basket);
+
+        cnt_basket_list.setText("");
 
         packer = (TextView) dialog_item_stock_detail_basket.findViewById(R.id.packer);
         packer.setText("");
@@ -1699,6 +1703,7 @@ public class CssdSterile extends AppCompatActivity {
                 btn_print_bk.setText("0");
                 basket_dialog_list_basket.setAdapter(null);
                 PairBasketBox_basket_Code.setText("");
+                cnt_basket_list.setText("");
                 basket_Code = "";
                 basket_ID = "";
                 packer_id = "";
@@ -6694,21 +6699,24 @@ public class CssdSterile extends AppCompatActivity {
                                 adapter = new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET,MAP_MODEL_IMPORT_WASH_DETAIL_SUB,3);
                                 basket_dialog_w_list.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_TO_PAIR,MAP_MODEL_IMPORT_WASH_DETAIL_SUB,4));
 
-                                if(ConfigProgram.pair_basket_2){
-                                    if(MAP_MODEL_IMPORT_WASH_DETAIL_SUB.containsKey(basket_Code.toLowerCase())){
-                                        MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR = MAP_MODEL_IMPORT_WASH_DETAIL_SUB.get(basket_Code.toLowerCase());
-                                        basket_dialog_list_basket.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR,5));
-                                        int xn=0;
-                                        for(int ii=0;ii<MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size();ii++){
-                                            if(MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.get(ii).getPrint_count()<=0){
-                                                xn = xn+1;
-                                            }
+//                                if(ConfigProgram.pair_basket_2){
+//
+//                                }
+
+                                if(MAP_MODEL_IMPORT_WASH_DETAIL_SUB.containsKey(basket_Code.toLowerCase())){
+                                    cnt_basket_list.setText(" [ "+MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size());
+                                    MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR = MAP_MODEL_IMPORT_WASH_DETAIL_SUB.get(basket_Code.toLowerCase());
+                                    basket_dialog_list_basket.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR,5));
+                                    int xn=0;
+                                    for(int ii=0;ii<MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size();ii++){
+                                        if(MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.get(ii).getPrint_count()<=0){
+                                            xn = xn+1;
                                         }
-                                        set_num_btn_print_bk(xn);
-                                    }else{
-                                        set_num_btn_print_bk(0);
-                                        basket_dialog_list_basket.setAdapter(null);
                                     }
+                                    set_num_btn_print_bk(xn);
+                                }else{
+                                    set_num_btn_print_bk(0);
+                                    basket_dialog_list_basket.setAdapter(null);
                                 }
 
                                 if(p_SterileProcessID!=null){
@@ -6784,7 +6792,12 @@ public class CssdSterile extends AppCompatActivity {
                     int index = 0;
 
                     for(int i=0;i<data.size();i+=size){
-                        Log.d("ttestdataget","data.get("+i+") = "+data.get(i+2)+"---"+data.get(i+19));
+                        Log.d("ttestdataget","PrintCount = "+data.get(i+1)+"---"+data.get(i+18));
+
+                        if(ConfigProgram.basket_tag && !ConfigProgram.pair_basket_2 && data.get(i + 18).equals("0")){
+                            continue;
+                        }
+
                         list.add(
                                 new ModelImportWashDetail(
                                         index,
@@ -7612,27 +7625,30 @@ public class CssdSterile extends AppCompatActivity {
                             basket_Code = c.getString("BasketCode");
                             basket_ID = c.getString("ID");
                             PairBasketBox_basket_Code.setText(c.getString("BasketName"));
+                            cnt_basket_list.setText(" [ "+MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size());
 
                             basket_dialog_w_list.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_TO_PAIR,MAP_MODEL_IMPORT_WASH_DETAIL_SUB,4));
                             Log.d("ttest_pair","Key_map = "+MAP_MODEL_IMPORT_WASH_DETAIL_SUB);
                             Log.d("ttest_pair","containsKey_map = "+MAP_MODEL_IMPORT_WASH_DETAIL_SUB.containsKey(basket_Code.toLowerCase()));
                             Log.d("ttest_pair","basket_Code = "+basket_Code);
 
-                            if(ConfigProgram.pair_basket_2){
-                                if(MAP_MODEL_IMPORT_WASH_DETAIL_SUB.containsKey(basket_Code.toLowerCase())){
-                                    MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR = MAP_MODEL_IMPORT_WASH_DETAIL_SUB.get(basket_Code.toLowerCase());
-                                    basket_dialog_list_basket.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR,5));
-                                    int xn=0;
-                                    for(int ii=0;ii<MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size();ii++){
-                                        if(MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.get(ii).getPrint_count()<=0){
-                                            xn = xn+1;
-                                        }
+//                            if(ConfigProgram.pair_basket_2){
+//
+//                            }
+
+                            if(MAP_MODEL_IMPORT_WASH_DETAIL_SUB.containsKey(basket_Code.toLowerCase())){
+                                MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR = MAP_MODEL_IMPORT_WASH_DETAIL_SUB.get(basket_Code.toLowerCase());
+                                basket_dialog_list_basket.setAdapter(new ImportWashDetailAdapter(CssdSterile.this, MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR,5));
+                                int xn=0;
+                                for(int ii=0;ii<MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.size();ii++){
+                                    if(MODEL_IMPORT_WASH_DETAIL_GROUP_BASKET_IN_PAIR.get(ii).getPrint_count()<=0){
+                                        xn = xn+1;
                                     }
-                                    set_num_btn_print_bk(xn);
-                                }else{
-                                    set_num_btn_print_bk(0);
-                                    basket_dialog_list_basket.setAdapter(null);
                                 }
+                                set_num_btn_print_bk(xn);
+                            }else{
+                                set_num_btn_print_bk(0);
+                                basket_dialog_list_basket.setAdapter(null);
                             }
 
 
