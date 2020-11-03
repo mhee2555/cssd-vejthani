@@ -3927,7 +3927,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         JSONObject c = rs.getJSONObject(i);
                         if (c.getString("finish").equals("true")){
                             txt_usr_receive.setText(c.getString("FirstName")+" "+c.getString("LastName"));
-                            basket.requestFocus();
+                            if(ConfigProgram.wash_tag){
+                                basket.requestFocus();
+                            }else{
+                                txt_get_ucode.requestFocus();
+                            }
+
                         }else {
                             Toast.makeText(SendSterile_MainActivity.this, "ไม่พบข้อมูล", Toast.LENGTH_SHORT).show();
                             txt_usr_receive.setText("");
@@ -4447,7 +4452,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         if(item_in_basket.get(j).getSs_rowid().equals(SSDetailID)){
 
                             Toast.makeText(SendSterile_MainActivity.this, "มีรายการอยู่ในตะกร้าแล้ว", Toast.LENGTH_SHORT).show();
-                           return;
+                            return;
                         }
                     }
 
