@@ -39,7 +39,8 @@ class newVdownloadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        run(getUrl.getURL()+"APK_Version/get_version.php")
+//        run(getUrl.getURL()+"APK_Version/get_version.php")
+        gotoInitAc()
 //        if(getUrl.Server!=1){
 //            apkUrl = "http://poseintelligence.dyndns.biz:8181/chevron/PoseintChevron.apk"
 //
