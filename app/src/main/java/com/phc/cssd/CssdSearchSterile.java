@@ -1127,6 +1127,8 @@ public class CssdSearchSterile extends AppCompatActivity {
                     List<ModelWashDetailForPrint> list = new ArrayList<>();
                     try {
                         JSONObject jsonObj = new JSONObject(s);
+                        final List<ModelSterileDetail> Label_2 = getItemLabel("2");
+                        final List<ModelSterileDetail> Label_3 = getItemLabel("3");
                         final List<ModelSterileDetail> Label_4 = getItemLabel("4");
                         rs = jsonObj.getJSONArray(TAG_RESULTS);
                         for (int i = 0; i < rs.length(); i++) {
@@ -1177,6 +1179,80 @@ public class CssdSearchSterile extends AppCompatActivity {
                                                                 m.getID()+";";
                                                     }
                                                     PSK.PrintSticker(CssdSearchSterile.this,4,Label_4,PRINTER_IP,B_ID,Print);
+                                                    updatePrintStatus( PSK.getData() );
+                                                    PSK.setData("");
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }, DELAY_TIME);
+                                    }
+                                }else if (c.getString("CaseLabel").equals("2")){
+                                    if(Label_2 != null && Label_2.size() > 0) {
+                                        final Handler handler2 = new Handler();
+                                        handler2.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    List<ModelSterileDetail> DATA_MODEL = Label_2;
+                                                    Iterator li = DATA_MODEL.iterator();
+                                                    String xData = "";
+                                                    while (li.hasNext()) {
+                                                        ModelSterileDetail m = (ModelSterileDetail) li.next();
+                                                        xData+= m.getItemname()+","+
+                                                                m.getPrice()+","+
+                                                                m.getDepName2()+","+
+                                                                m.getItemcode()+","+
+                                                                m.getUsageCode()+","+
+                                                                m.getMachineName()+","+
+                                                                m.getSterileRoundNumber()+","+
+                                                                m.getSterileDate()+","+
+                                                                m.getExpireDate()+","+
+                                                                m.getAgeDay()+","+
+                                                                m.getUsr_prepare()+","+
+                                                                m.getUsr_approve()+","+
+                                                                m.getUsr_sterile()+","+
+                                                                m.getQty()+","+
+                                                                m.getID()+";";
+                                                    }
+                                                    PSK.PrintSticker(CssdSearchSterile.this,2,Label_2,PRINTER_IP,B_ID,Print);
+                                                    updatePrintStatus( PSK.getData() );
+                                                    PSK.setData("");
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }, DELAY_TIME);
+                                    }
+                                }else if (c.getString("CaseLabel").equals("3")){
+                                    if(Label_3 != null && Label_3.size() > 0) {
+                                        final Handler handler2 = new Handler();
+                                        handler2.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    List<ModelSterileDetail> DATA_MODEL = Label_3;
+                                                    Iterator li = DATA_MODEL.iterator();
+                                                    String xData = "";
+                                                    while (li.hasNext()) {
+                                                        ModelSterileDetail m = (ModelSterileDetail) li.next();
+                                                        xData+= m.getItemname()+","+
+                                                                m.getPrice()+","+
+                                                                m.getDepName2()+","+
+                                                                m.getItemcode()+","+
+                                                                m.getUsageCode()+","+
+                                                                m.getMachineName()+","+
+                                                                m.getSterileRoundNumber()+","+
+                                                                m.getSterileDate()+","+
+                                                                m.getExpireDate()+","+
+                                                                m.getAgeDay()+","+
+                                                                m.getUsr_prepare()+","+
+                                                                m.getUsr_approve()+","+
+                                                                m.getUsr_sterile()+","+
+                                                                m.getQty()+","+
+                                                                m.getID()+";";
+                                                    }
+                                                    PSK.PrintSticker(CssdSearchSterile.this,3,Label_3,PRINTER_IP,B_ID,Print);
                                                     updatePrintStatus( PSK.getData() );
                                                     PSK.setData("");
                                                 } catch (Exception e) {

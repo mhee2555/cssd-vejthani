@@ -306,21 +306,21 @@ public class PrintSticker {
                 Tsc.qrcode(25, 275, "H", "5", "A", "0", "M2", "S1", m.getUsageCode());
                 String yy1 = (Integer.parseInt( m.getSterileDate().substring(6,10) )+543)+"";
                 String mfc1 = m.getSterileDate().substring(0,2) +"/"+m.getSterileDate().substring(3,5)+"/"+ yy1.substring(2,4);
-                Tsc.sendpicture(160, 300, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 24));
+                Tsc.sendpicture(170, 300, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 24));
                 String yy2 = (Integer.parseInt( m.getExpireDate().substring(6,10) )+543)+"";
                 String mfc2 = m.getExpireDate().substring(0,2) +"/"+m.getExpireDate().substring(3,5)+"/"+ yy2.substring(2,4);
-                Tsc.sendpicture(160, 330, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
-                Tsc.sendpicture(160, 265, TextAsBitmap.getTextBitmap("เครื่อง : "+m.getMachineName() + "  รอบ :" + m.getSterileRoundNumber(), 24));
+                Tsc.sendpicture(170, 330, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
+                Tsc.sendpicture(170, 265, TextAsBitmap.getTextBitmap("เครื่อง : "+m.getMachineName() + "  รอบ :" + m.getSterileRoundNumber(), 24));
                 //----------------------------------------------------------------
                 // Footer
                 //----------------------------------------------------------------
                 Tsc.sendpicture(35, 430, TextAsBitmap.getTextBitmap1(Itemname[0], 26));
                 String Dep = m.getDepName2();
-                Tsc.sendpicture(160, 470, TextAsBitmap.getTextBitmap(m.getUsageCode(),20));
+                Tsc.sendpicture(170, 470, TextAsBitmap.getTextBitmap(m.getUsageCode(),20));
                 String DepName[] = TextTwoLine.make2line1(Dep);
-                Tsc.sendpicture(160, 500, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 23));
+                Tsc.sendpicture(170, 500, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 23));
                 Tsc.qrcode(35, 470, "H", "4", "A", "0", "M2", "S1", m.getUsageCode());
-                Tsc.sendpicture(160, 527, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
+                Tsc.sendpicture(170, 527, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
                 if(pQty > Integer.parseInt( m.getQty() ))
                     Tsc.sendcommand("PRINT 1," + pQty + "\r\n");
                 else
@@ -361,30 +361,30 @@ public class PrintSticker {
             try {
                 ModelSterileDetail m = (ModelSterileDetail) li.next();
                 String Itemname[] = TextTwoLine.make2line(m.getItemname());
-                Tsc.sendpicture(25, 15, TextAsBitmap.getTextBitmap1(Itemname[0], 27));
-                Tsc.sendpicture(25, 60, TextAsBitmap.getTextBitmap1(Itemname[1], 27));
+                Tsc.sendpicture(25, 30, TextAsBitmap.getTextBitmap1(Itemname[0], 27));
+                //Tsc.sendpicture(25, 60, TextAsBitmap.getTextBitmap1(Itemname[1], 27));
                 Tsc.sendpicture(25, 110, TextAsBitmap.getTextBitmap(m.getUsageCode(), 26));
                 Tsc.sendpicture(25, 145, TextAsBitmap.getTextBitmap(m.getUsr_prepare()+" - เตรียม ", 26));
                 Tsc.sendpicture(25, 180, TextAsBitmap.getTextBitmap(m.getUsr_approve()+" - ตรวจ ", 26));
-                Tsc.qrcode(25, 255, "H", "5", "A", "0", "M2", "S1", m.getUsageCode());
+                Tsc.qrcode(25, 270, "H", "5", "A", "0", "M2", "S1", m.getUsageCode());
+                Tsc.sendpicture(170, 275, TextAsBitmap.getTextBitmap("เครื่อง : "+m.getMachineName() + "  รอบ :" + m.getSterileRoundNumber(), 24));
                 String yy1 = (Integer.parseInt( m.getSterileDate().substring(6,10) )+543)+"";
                 String mfc1 = m.getSterileDate().substring(0,2) +"/"+m.getSterileDate().substring(3,5)+"/"+ yy1.substring(2,4);
-                Tsc.sendpicture(170, 295, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 24));
+                Tsc.sendpicture(170, 310, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 24));
                 String yy2 = (Integer.parseInt( m.getExpireDate().substring(6,10) )+543)+"";
                 String mfc2 = m.getExpireDate().substring(0,2) +"/"+m.getExpireDate().substring(3,5)+"/"+ yy2.substring(2,4);
-                Tsc.sendpicture(170, 325, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
-                Tsc.sendpicture(170, 260, TextAsBitmap.getTextBitmap("เครื่อง : "+m.getMachineName() + "  รอบ :" + m.getSterileRoundNumber(), 24));
+                Tsc.sendpicture(170, 340, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
                 //----------------------------------------------------------------
                 // Footer
                 //----------------------------------------------------------------
-                Tsc.sendpicture(35, 400, TextAsBitmap.getTextBitmap1(Itemname[0], 26));
-                Tsc.sendpicture(35, 430, TextAsBitmap.getTextBitmap1(Itemname[1], 26));
+                Tsc.sendpicture(35, 420, TextAsBitmap.getTextBitmap1(Itemname[0], 26));
+                //Tsc.sendpicture(35, 450, TextAsBitmap.getTextBitmap1(Itemname[1], 26));
                 String Dep = m.getDepName2();
-                Tsc.sendpicture(170, 460, TextAsBitmap.getTextBitmap(m.getUsageCode(),20));
+                Tsc.sendpicture(170, 480, TextAsBitmap.getTextBitmap(m.getUsageCode(),20));
                 String DepName[] = TextTwoLine.make2line1(Dep);
-                Tsc.sendpicture(170, 490, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 23));
-                Tsc.qrcode(35, 460, "H", "4", "A", "0", "M2", "S1", m.getUsageCode());
-                Tsc.sendpicture(170, 520, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
+                Tsc.sendpicture(170, 510, TextAsBitmap.getTextBitmap("MFG "+mfc1+" ("+ m.getAgeDay() +"วัน"+")", 23));
+                Tsc.qrcode(35, 480, "H", "4", "A", "0", "M2", "S1", m.getUsageCode());
+                Tsc.sendpicture(170, 537, TextAsBitmap.getTextBitmap1( "EXP "+ mfc2 , 32));
                 if(pQty > Integer.parseInt( m.getQty() ))
                     Tsc.sendcommand("PRINT 1," + pQty + "\r\n");
                 else
