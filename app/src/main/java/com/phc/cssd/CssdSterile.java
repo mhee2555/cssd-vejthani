@@ -321,10 +321,10 @@ public class CssdSterile extends AppCompatActivity {
         if(!ConfigProgram.basket_tag){
             button_basket.setVisibility(View.INVISIBLE);
             btn_checklist.setVisibility(View.INVISIBLE);
-            txt_test_program.setVisibility(View.INVISIBLE);
+            txt_test_program.setVisibility(View.VISIBLE);
 
             TextView textview_test_program = (TextView) findViewById(R.id.textview_test_program);
-            textview_test_program.setVisibility(View.INVISIBLE);
+            textview_test_program.setVisibility(View.VISIBLE);
             scan_basket.setVisibility(View.INVISIBLE);
 
             TextView txt_usr_prepare_h = (TextView) findViewById(R.id.txt_usr_prepare_h);

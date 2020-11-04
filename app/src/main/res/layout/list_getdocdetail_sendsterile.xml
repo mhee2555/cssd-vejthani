@@ -79,22 +79,23 @@
 
             <ImageView
                 android:id="@+id/Open_pic"
-                android:layout_width="70dp"
-                android:layout_height="27dp"
-                android:layout_marginTop="18dp"
+                android:layout_width="95dp"
+                android:layout_height="25dp"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/button_pic"
+                android:background="@drawable/remarl_img1"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="40dp" />
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="2dp"/>
 
             <TextView
                 android:id="@+id/Open_pic_Text"
                 android:layout_width="70dp"
-                android:layout_height="23dp"
-                android:text="ดูรูปภาพ"
+                android:layout_height="17dp"
+                android:text="ภาพ Remark"
                 android:textColor="@android:color/black"
                 android:textSize="12dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginBottom="7dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:textStyle="bold">

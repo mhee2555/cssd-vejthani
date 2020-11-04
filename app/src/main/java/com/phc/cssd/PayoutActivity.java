@@ -780,28 +780,28 @@ public class PayoutActivity extends AppCompatActivity {
         user_name = intent.getStringExtra("user_name");
     }
 
-    public boolean onTouchEvent(MotionEvent touchEvent){
-        switch (touchEvent.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = touchEvent.getX();
-                y1 = touchEvent.getY();
-                Log.d("KFDJDL",x1+"");
-                Log.d("KFDJDL",y1+"");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.d("KFDJDL",x2+"");
-                Log.d("KFDJDL",y2+"");
-                x2 = touchEvent.getX();
-                y2 = touchEvent.getY();
-                if (x1 < x2){
-                    gotoActivity(SterileSeachActivity.class);
-                }else if (x1 > x2){
-
-                }
-                break;
-        }
-        return false;
-    }
+//    public boolean onTouchEvent(MotionEvent touchEvent){
+//        switch (touchEvent.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                x1 = touchEvent.getX();
+//                y1 = touchEvent.getY();
+//                Log.d("KFDJDL",x1+"");
+//                Log.d("KFDJDL",y1+"");
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                Log.d("KFDJDL",x2+"");
+//                Log.d("KFDJDL",y2+"");
+//                x2 = touchEvent.getX();
+//                y2 = touchEvent.getY();
+//                if (x1 < x2){
+//                    gotoActivity(SterileSeachActivity.class);
+//                }else if (x1 > x2){
+//
+//                }
+//                break;
+//        }
+//        return false;
+//    }
 
     boolean Resume1st =true;
     @Override

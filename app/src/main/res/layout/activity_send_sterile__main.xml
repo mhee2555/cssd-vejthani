@@ -45,9 +45,20 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
                     android:layout_weight="0.1"
                     android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/bt_sw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="เอกสารส่งล้าง - เอกสารส่งฆ่าเชื้อ   "
+                        android:textColor="@android:color/white"
+                        android:textColorLink="@color/colorSwitchBlue"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:theme="@style/SwitchTheme" />
 
                     <TextView
                         android:id="@+id/textViewHead"
@@ -62,18 +73,6 @@
                         android:textStyle="bold"
                         android:theme="@style/SwitchTheme"
                         android:visibility="gone" />
-
-                    <Switch
-                        android:id="@+id/bt_sw"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="เอกสารส่งล้าง - เอกสารส่งฆ่าเชื้อ   "
-                        android:textColor="@android:color/white"
-                        android:textColorLink="@color/colorSwitchBlue"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:theme="@style/SwitchTheme" />
 
                 </LinearLayout>
 
@@ -209,6 +208,40 @@
                         android:background="@drawable/shape_qr_line"
                         android:ems="10"
                         android:hint="สแกนรหัสใช้งาน"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_set_Docno"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/textView20"
+                        android:layout_alignTop="@+id/newSS"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:text="เลขที่เอกสาร"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_docno"
+                        android:layout_width="220dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="18dp"
+                        android:background="@drawable/text_edit"
+                        android:ems="10"
+                        android:hint=""
+                        android:gravity="center|left"
                         android:inputType="textPersonName"
                         android:paddingLeft="15dp"
                         android:textColor="@android:color/black"
@@ -1305,7 +1338,7 @@
         android:id="@+id/txt_tel_dep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="โทร : 9-2368"
+        android:text="           "
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="490dp"

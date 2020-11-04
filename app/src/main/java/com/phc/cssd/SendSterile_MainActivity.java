@@ -135,6 +135,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
     //TextView txt_usr_send;
     TextView etxt_date;
     TextView etxt_docno;
+    TextView txt_docno;
     TextView txt_tel_dep;
     TextView etxt_sumqty;
     SearchableSpinner etxt_dept;
@@ -277,28 +278,28 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean onTouchEvent(MotionEvent touchEvent){
-        switch (touchEvent.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = touchEvent.getX();
-                y1 = touchEvent.getY();
-                Log.d("KFDJDL",x1+"");
-                Log.d("KFDJDL",y1+"");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.d("KFDJDL",x2+"");
-                Log.d("KFDJDL",y2+"");
-                x2 = touchEvent.getX();
-                y2 = touchEvent.getY();
-                if (x1 < x2){
-
-                }else if (x1 > x2){
-                    gotoActivity(CssdWash.class);
-                }
-                break;
-        }
-        return false;
-    }
+//    public boolean onTouchEvent(MotionEvent touchEvent){
+//        switch (touchEvent.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                x1 = touchEvent.getX();
+//                y1 = touchEvent.getY();
+//                Log.d("KFDJDL",x1+"");
+//                Log.d("KFDJDL",y1+"");
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                Log.d("KFDJDL",x2+"");
+//                Log.d("KFDJDL",y2+"");
+//                x2 = touchEvent.getX();
+//                y2 = touchEvent.getY();
+//                if (x1 < x2){
+//
+//                }else if (x1 > x2){
+//                    gotoActivity(CssdWash.class);
+//                }
+//                break;
+//        }
+//        return false;
+//    }
 
     public String getSerialNumber() {
         try {
@@ -548,7 +549,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
         txt_usr_send.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(etxt_docno.getText().toString().equals("")){
+                if(txt_docno.getText().toString().equals("")){
                     Toast.makeText(SendSterile_MainActivity.this, "ยังไม่ได้เพิ่มรายการ กรุณาเพิ่มรายการ", Toast.LENGTH_SHORT).show();
                 }else{
                     txt_usr_send_old = xDepSend.get(txt_usr_send.getSelectedItem());
@@ -565,7 +566,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0){
                     String emp_id = xDepSend.get(txt_usr_send.getSelectedItem());
-                    updateSendSterile(Master.user_send, emp_id, etxt_docno.getText().toString());
+                    updateSendSterile(Master.user_send, emp_id, txt_docno.getText().toString());
                     if(IsAdmin && txt_usr_send_on_Click && (!txt_usr_send_old.equals(emp_id))){
                         addEvenlog("SS","","Edit UserSend ID from "+txt_usr_send_old+" to "+emp_id);
                         txt_usr_send_on_Click = false;
@@ -604,7 +605,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
         textView19 = ( TextView ) findViewById(R.id.textView19);
         list_docno_detail = ( ListView ) findViewById(R.id.list_docno_detail);
         etxt_docno = ( TextView ) findViewById(R.id.etxt_docno);
-
+        txt_docno = (TextView) findViewById(R.id.txt_docno);
         xedit_detail.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
@@ -684,7 +685,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                 UserReceive = newsData.getUsr_receive();
                 UserSend = newsData.getUsr_send();
                 String UserSend_ = newsData.getUserSend();
-                etxt_docno.setText(DocNo);
+                txt_docno.setText(DocNo);
                 etxt_date.setText(DocDate);
                 etxt_sumqty.setText(Qty);
                 getlistcreate(DocNo, ED_Dept);
@@ -738,7 +739,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                 UserReceive = newsData.getUsr_receive();
                 UserSend = newsData.getUsr_send();
                 String UserSend_ = newsData.getUserSend();
-                etxt_docno.setText(DocNo);
+                txt_docno.setText(DocNo);
                 etxt_date.setText(DocDate);
                 etxt_sumqty.setText(Qty);
                 getlistcreate_l2(DocNo);
@@ -770,13 +771,13 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     IsDel = "1";
-                    getlistcreate(etxt_docno.getText().toString(), ED_Dept);
+                    getlistcreate(txt_docno.getText().toString(), ED_Dept);
                     bin_all.setVisibility(View.VISIBLE);
                     bin_all_black.setVisibility(View.INVISIBLE);
                     Toast.makeText(SendSterile_MainActivity.this, "เลือกลบหลายรายการ", Toast.LENGTH_SHORT).show();
                 }else if (!isChecked){
                     IsDel = "0";
-                    getlistcreate(etxt_docno.getText().toString(), ED_Dept);
+                    getlistcreate(txt_docno.getText().toString(), ED_Dept);
                     bin_all.setVisibility(View.INVISIBLE);
                     bin_all_black.setVisibility(View.VISIBLE);
                     Toast.makeText(SendSterile_MainActivity.this, "เลือกลบทีละรายการ", Toast.LENGTH_SHORT).show();
@@ -788,13 +789,13 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     IsDel = "1";
-                    getlistcreate_l2(etxt_docno.getText().toString());
+                    getlistcreate_l2(txt_docno.getText().toString());
                     bin_all_1.setVisibility(View.VISIBLE);
                     bin_all_black_1.setVisibility(View.INVISIBLE);
                     Toast.makeText(SendSterile_MainActivity.this, "เลือกลบหลายรายการ", Toast.LENGTH_SHORT).show();
                 }else if (!isChecked){
                     IsDel = "0";
-                    getlistcreate_l2(etxt_docno.getText().toString());
+                    getlistcreate_l2(txt_docno.getText().toString());
                     bin_all_1.setVisibility(View.INVISIBLE);
                     bin_all_black_1.setVisibility(View.VISIBLE);
                     Toast.makeText(SendSterile_MainActivity.this, "เลือกลบทีละรายการ", Toast.LENGTH_SHORT).show();
@@ -1050,7 +1051,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if (switch_layout) {
-                    if (!etxt_docno.getText().toString().equals("")) {
+                    if (!txt_docno.getText().toString().equals("")) {
                         if (!xIsStatus.equals("1")) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(SendSterile_MainActivity.this);
                             builder.setCancelable(true);
@@ -1060,12 +1061,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            createNewSendSterile(etxt_docno.getText().toString(), checkRowID());
-                                            updateIsclean(etxt_docno.getText().toString(), ED_UserCode);
+                                            createNewSendSterile(txt_docno.getText().toString(), checkRowID());
+                                            updateIsclean(txt_docno.getText().toString(), ED_UserCode);
                                             getlistdata_l2(dept_search_l2, date_l2.getText().toString(), "");
-                                            updateSendSterile(Master.user_receive, txt_usr_receive.getContentDescription()+"", etxt_docno.getText()+"");
+                                            updateSendSterile(Master.user_receive, txt_usr_receive.getContentDescription()+"", txt_docno.getText()+"");
                                             String emp_id = xDepSend.get(txt_usr_send.getSelectedItem());
-                                            updateSendSterile(Master.user_send, emp_id, etxt_docno.getText().toString());
+                                            updateSendSterile(Master.user_send, emp_id, txt_docno.getText().toString());
                                             clear_l2();
                                         }
                                     });
@@ -1084,7 +1085,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     }
                 } else {
                     if (!IsStatus.equals("1")){
-                        if (!etxt_docno.getText().toString().equals("")) {
+                        if (!txt_docno.getText().toString().equals("")) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(SendSterile_MainActivity.this);
                             builder.setCancelable(true);
                             builder.setTitle("ยืนยัน");
@@ -1096,7 +1097,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                                             System.out.println(txt_usr_receive.getText().toString());
                                             if ((!txt_usr_receive.getText().toString().trim().equals(""))) {
                                                 if (!IsStatus.equals("1")) {
-                                                    savedoc(etxt_docno.getText().toString());
+                                                    savedoc(txt_docno.getText().toString());
                                                     final ArrayList<pCustomer> pCus = new ArrayList<pCustomer>();
                                                     //updateSendSterile(Master.user_receive, txt_usr_receive.getContentDescription() + "", etxt_docno.getText() + "");
                                                     String emp_id = xDepSend.get(txt_usr_send.getSelectedItem());
@@ -1251,7 +1252,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 
         bt_sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!etxt_docno.getText().toString().equals("")) {
+                if (!txt_docno.getText().toString().equals("")) {
                     if (bt_sw.isChecked()) {
                         L1.setVisibility(View.GONE);
                         L2.setVisibility(View.VISIBLE);
@@ -1929,7 +1930,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             protected String doInBackground(String... params) {
                 HashMap<String, String> data = new HashMap<String, String>();
                 data.put("UsageCode", UsageCode);
-                data.put("DocNo",etxt_docno.getText().toString());
+                data.put("DocNo",txt_docno.getText().toString());
                 data.put("B_ID",B_ID);
                 String result = ruc.sendPostRequest(iFt.getitemdetail_sendsterile1(), data);
                 Log.d("YUYU",data+"");
@@ -2099,12 +2100,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 
                     }
                     //updateDate();
-                    Log.d("BYRHCY",etxt_docno.getText().toString());
-                    if (etxt_docno.getText().toString().equals("")){
+                    Log.d("BYRHCY",txt_docno.getText().toString());
+                    if (txt_docno.getText().toString().equals("")){
                         getlistdata(dept_search_l2, date_l2.getText().toString(), "");
-                        etxt_docno.setText(txtDocno);
+                        txt_docno.setText(txtDocno);
                     }else {
-                        etxt_docno.setText(txtDocno);
+                        txt_docno.setText(txtDocno);
                     }
                     getlistcreate(txtDocno, ED_Dept);
                     if (bo.equals("true")){
@@ -2178,12 +2179,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         pCus.add(xST);
                     }
                     //updateDate();
-                    Log.d("BYRHCY",etxt_docno.getText().toString());
-                    if (etxt_docno.getText().toString().equals("")){
+                    Log.d("BYRHCY",txt_docno.getText().toString());
+                    if (txt_docno.getText().toString().equals("")){
                         getlistdata_l2(dept_search_l2, date_l2.getText().toString(), "");
-                        etxt_docno.setText(txtDocno);
+                        txt_docno.setText(txtDocno);
                     }else {
-                        etxt_docno.setText(txtDocno);
+                        txt_docno.setText(txtDocno);
                     }
                     getlistcreate_l2(txtDocno);
                     if (bo.equals("true")){
@@ -2266,12 +2267,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         }
                     }
                     //updateDate();
-                    Log.d("BYRHCY",etxt_docno.getText().toString());
-                    if (etxt_docno.getText().toString().equals("")){
+                    Log.d("BYRHCY",txt_docno.getText().toString());
+                    if (txt_docno.getText().toString().equals("")){
                         getlistdata("", date_l2.getText().toString(), "");
                     }
 
-                    etxt_docno.setText(txtDocno);
+                    txt_docno.setText(txtDocno);
 
                     if (bo.equals("true")){
                         ShowDetailScan(txtDocno);
@@ -2367,7 +2368,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 //                    getlistdata(deptsp_id, edittext.getText().toString(), "");
 //                    getlistdata_l2(dept_search_l2, date_l2.getText().toString(), "");
                     cleardoc();
-                    etxt_docno.setText(txtDocno);
+                    txt_docno.setText(txtDocno);
                 } catch (JSONException e) {
                 }
             }
@@ -2437,7 +2438,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 //                    getlistdata(deptsp_id, edittext.getText().toString(), "");
 //                    getlistdata_l2(dept_search_l2, date_l2.getText().toString(), "");
                     cleardoc();
-                    etxt_docno.setText(DocNo);
+                    txt_docno.setText(DocNo);
                     DelRowId.clear();
                     DelAlldata.clear();
                 } catch (JSONException e) {
@@ -2582,7 +2583,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
     public void cleardoc() {
         txt_usr_receive.setText("");
         txt_usr_send.setSelection(0);
-        etxt_docno.setText("");
+        txt_docno.setText("");
         txt_tel_dep.setText("");
         etxt_sumqty.setText("");
         final ArrayList<pCustomer> pCus = new ArrayList<pCustomer>();
@@ -2595,7 +2596,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
         txt_usr_receive.setText("");
         txt_usr_send.setSelection(0);
         final ArrayList<pCustomer> pCus = new ArrayList<pCustomer>();
-        etxt_docno.setText("");
+        txt_docno.setText("");
         txt_tel_dep.setText("");
         etxt_sumqty.setText("");
         selectedArray.clear();
@@ -2970,7 +2971,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         pCus.add(xST);
                         cnt++;
                     }
-                    etxt_docno.setText(xDocNo);
+                    txt_docno.setText(xDocNo);
                     etxt_sumqty.setText(cnt + "");
                     list_createdetail_l2.setAdapter(new sendsterile_washdocdetail_adapter(SendSterile_MainActivity.this, pCus,IsAdmin,B_ID,IsDel));
 
@@ -3148,7 +3149,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
     }
 
     public void clear_l2() {
-        etxt_docno.setText("");
+        txt_docno.setText("");
         txt_tel_dep.setText("");
         etxt_sumqty.setText("");
         etxt_dept.setSelection(0);
@@ -3213,7 +3214,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     String boo = "";
                     for (int i = 0; i < setRs.length(); i++) {
                         JSONObject c = setRs.getJSONObject(i);
-                        etxt_docno.setText(c.getString("Finish"));
+                        txt_docno.setText(c.getString("Finish"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -3265,7 +3266,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 
                 //เอกสารฆ่าเชื้อ
                 if (xSel.equals("1")) {
-                    InsertDetail1(etxt_docno.getText().toString(), RETURN_DATA, etxt_date.getText().toString(), ED_UserCode, ED_Dept, RETURN_QTY);
+                    InsertDetail1(txt_docno.getText().toString(), RETURN_DATA, etxt_date.getText().toString(), ED_UserCode, ED_Dept, RETURN_QTY);
                     txt_get_ucode.setText("");
                     txt_get_ucode.requestFocus();
                     Toast.makeText(SendSterile_MainActivity.this, "นำเข้าอุปกรณ์สำเร็จ", Toast.LENGTH_SHORT).show();
@@ -3273,9 +3274,9 @@ public class SendSterile_MainActivity extends AppCompatActivity {
 
                 //เอกสารส่งล้าง
                 if (xSel1.equals("1")) {
-                    InsertDetail(etxt_docno.getText().toString(), RETURN_DATA, etxt_date.getText().toString(), ED_UserCode, ED_Dept, RETURN_QTY);
+                    InsertDetail(txt_docno.getText().toString(), RETURN_DATA, etxt_date.getText().toString(), ED_UserCode, ED_Dept, RETURN_QTY);
                     if(IsAdmin){
-                        addEvenlog("SS",RETURN_DATA,"Add [ "+RETURN_QTY+" ] "+RETURN_DATA+" to "+etxt_docno.getText().toString());
+                        addEvenlog("SS",RETURN_DATA,"Add [ "+RETURN_QTY+" ] "+RETURN_DATA+" to "+txt_docno.getText().toString());
                     }
                     txt_get_ucode.setText("");
                     txt_get_ucode.requestFocus();
@@ -3308,7 +3309,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                             addEvenlog("SS","","Edit UserReceive ID from "+txt_old_recrive+" to "+RETURN_VALUE);
                         }
                     }
-                    updateSendSterile(Master.user_receive, RETURN_VALUE, etxt_docno.getText().toString());
+                    updateSendSterile(Master.user_receive, RETURN_VALUE, txt_docno.getText().toString());
                 } else if (resultCode == Master.user_send) {
                     //txt_usr_send.setText(RETURN_DATA);
                     //txt_usr_send.setContentDescription(RETURN_VALUE);
@@ -3436,11 +3437,11 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     for(int i=0;i<rs.length();i++) {
                         JSONObject c = rs.getJSONObject(i);
                         txt_usr_receive.setText(c.getString("FirstName"));
-                        if (c.getString("Tel").equals("")){
-                            txt_tel_dep.setText("โทร : ไม่มีข้อมูล");
-                        }else {
-                            txt_tel_dep.setText("โทร : "+c.getString("Tel"));
-                        }
+//                        if (c.getString("Tel").equals("")){
+//                            txt_tel_dep.setText("โทร : ไม่มีข้อมูล");
+//                        }else {
+//                            txt_tel_dep.setText("โทร : "+c.getString("Tel"));
+//                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -3481,12 +3482,12 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     for(int i=0;i<rs.length();i++) {
                         JSONObject c = rs.getJSONObject(i);
                         //txt_usr_receive.setText(c.getString("FirstName"));
-                        etxt_docno.setText(c.getString("DocNo"));
-                        if (c.getString("Tel").equals("")){
-                            txt_tel_dep.setText("โทร : ไม่มีข้อมูล");
-                        }else {
-                            txt_tel_dep.setText("โทร : "+c.getString("Tel"));
-                        }
+                        txt_docno.setText(c.getString("DocNo"));
+//                        if (c.getString("Tel").equals("")){
+//                            txt_tel_dep.setText("โทร : ไม่มีข้อมูล");
+//                        }else {
+//                            txt_tel_dep.setText("โทร : "+c.getString("Tel"));
+//                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -3539,7 +3540,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 HashMap<String, String> data = new HashMap<String,String>();
-                data.put("DocNo",etxt_docno.getText().toString());
+                data.put("DocNo",txt_docno.getText().toString());
                 data.put("B_ID",B_ID);
                 String result = null;
                 try {
@@ -3586,7 +3587,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                             txt_get_ucode.setText("");
                             txt_get_ucode.requestFocus();
                         }else if (bo.equals("true")){
-                            InsertDetail2(etxt_docno.getText().toString(), txt_get_ucode.getText().toString().toLowerCase(), etxt_date.getText().toString(), ED_UserCode, ED_Dept, "0");
+                            InsertDetail2(txt_docno.getText().toString(), txt_get_ucode.getText().toString().toLowerCase(), etxt_date.getText().toString(), ED_UserCode, ED_Dept, "0");
                         }
                     }
                 } catch (JSONException e) {
@@ -3597,7 +3598,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 HashMap<String, String> data = new HashMap<String,String>();
-                data.put("DocNo",etxt_docno.getText().toString());
+                data.put("DocNo",txt_docno.getText().toString());
                 data.put("B_ID",B_ID);
                 data.put("Usagecode",Usagecode);
                 String result = null;
@@ -3832,7 +3833,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                 data.put("Usagecode",Usagecode);
                 data.put("B_ID",B_ID);
                 data.put("Type","0");
-                data.put("DocNo",etxt_docno.getText().toString());
+                data.put("DocNo",txt_docno.getText().toString());
                 String result = null;
                 try {
                     result = httpConnect.sendPostRequest(Url.URL + "cssd_display_usage_count_scan.php", data);
@@ -3996,7 +3997,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
         intent.putExtra("EmpCode",EmpCode);
         intent.putExtra("IsAdmin",IsAdmin);
         intent.putExtra("IsStatus",IsStatus);
-        intent.putExtra("DocNo",etxt_docno.getText().toString());
+        intent.putExtra("DocNo",txt_docno.getText().toString());
         intent.putExtra("Type",type);
         intent.putExtra("Qty",Qty);
         intent.putExtra("Qty_save",Qty_save);
@@ -4120,7 +4121,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     for(int i=0;i<setRs.length();i++) {
                         JSONObject c = setRs.getJSONObject(i);
                         bo=c.getString("flag");
-                        getlistcreate(etxt_docno.getText().toString().trim(), ED_Dept);
+                        getlistcreate(txt_docno.getText().toString().trim(), ED_Dept);
                     }
                 }catch (JSONException e){
                 }
@@ -4164,7 +4165,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     for(int i=0;i<setRs.length();i++) {
                         JSONObject c = setRs.getJSONObject(i);
                         bo=c.getString("flag");
-                        getlistcreate(etxt_docno.getText().toString().trim(), ED_Dept);
+                        getlistcreate(txt_docno.getText().toString().trim(), ED_Dept);
                     }
                 }catch (JSONException e){
                 }
@@ -4209,7 +4210,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                     for(int i=0;i<setRs.length();i++) {
                         JSONObject c = setRs.getJSONObject(i);
                         bo=c.getString("flag");
-                        getlistcreate(etxt_docno.getText().toString().trim(), ED_Dept);
+                        getlistcreate(txt_docno.getText().toString().trim(), ED_Dept);
                     }
                 }catch (JSONException e){
                 }
@@ -4252,7 +4253,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
                         JSONObject c = setRs.getJSONObject(i);
                         bo=c.getString("flag");
                         if (bo.equals("true") && xsel.equals("1")){
-                            getlistcreate(etxt_docno.getText().toString().trim(), ED_Dept);
+                            getlistcreate(txt_docno.getText().toString().trim(), ED_Dept);
                             Toast.makeText(SendSterile_MainActivity.this, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -4310,7 +4311,7 @@ public class SendSterile_MainActivity extends AppCompatActivity {
             textView46_1.setText(basket_name+" [ "+qty+" รายการ ]");
             washtag_detail(BasketCode);
 
-            getlistcreate(etxt_docno.getText().toString(), "");
+            getlistcreate(txt_docno.getText().toString(), "");
         }
     }
 

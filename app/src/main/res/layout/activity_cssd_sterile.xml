@@ -769,7 +769,7 @@
                                     android:text="การทดสอบ"
                                     android:textColor="@color/colorWhite"
                                     android:textSize="14dp"
-                                    android:visibility="gone"></TextView>
+                                    android:visibility="visible"></TextView>
 
                                 <TextView
                                     android:layout_width="110dp"
@@ -861,7 +861,7 @@
                                     android:layout_height="30dp"
                                     android:layout_alignParentStart="true"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="150dp"
+                                    android:layout_marginLeft="300dp"
                                     android:background="@drawable/shape_black_line"
                                     android:gravity="center_vertical"
                                     android:paddingLeft="8dp"
@@ -869,7 +869,7 @@
                                     android:textColor="#FFFFFF"
                                     android:textSize="14dp"
                                     android:textStyle="bold"
-                                    android:visibility="gone" />
+                                    android:visibility="visible" />
 
                                 <TextView
                                     android:id="@+id/OccupancyRate_Sterile"
@@ -1072,7 +1072,7 @@
         android:layout_marginStart="275dp"
         android:layout_toEndOf="@+id/txt_caption"
         android:textColor="@color/colorWhite"
-        android:visibility="gone"
+        android:visibility="visible"
         app:tbgCheckedButton="@+id/choice_2">
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
