@@ -1230,34 +1230,34 @@ public class CssdSearchSterile extends AppCompatActivity {
                                         handler2.postDelayed(new Runnable() {
                                             @Override
                                             public void run() {
-                                                try {
-                                                    List<ModelSterileDetail> DATA_MODEL = Label_3;
-                                                    Iterator li = DATA_MODEL.iterator();
-                                                    String xData = "";
-                                                    while (li.hasNext()) {
-                                                        ModelSterileDetail m = (ModelSterileDetail) li.next();
-                                                        xData+= m.getItemname()+","+
-                                                                m.getPrice()+","+
-                                                                m.getDepName2()+","+
-                                                                m.getItemcode()+","+
-                                                                m.getUsageCode()+","+
-                                                                m.getMachineName()+","+
-                                                                m.getSterileRoundNumber()+","+
-                                                                m.getSterileDate()+","+
-                                                                m.getExpireDate()+","+
-                                                                m.getAgeDay()+","+
-                                                                m.getUsr_prepare()+","+
-                                                                m.getUsr_approve()+","+
-                                                                m.getUsr_sterile()+","+
-                                                                m.getQty()+","+
-                                                                m.getID()+";";
-                                                    }
-                                                    PSK.PrintSticker(CssdSearchSterile.this,3,Label_3,PRINTER_IP,B_ID,Print);
-                                                    updatePrintStatus( PSK.getData() );
-                                                    PSK.setData("");
-                                                } catch (Exception e) {
-                                                    e.printStackTrace();
+                                            try {
+                                                List<ModelSterileDetail> DATA_MODEL = Label_3;
+                                                Iterator li = DATA_MODEL.iterator();
+                                                String xData = "";
+                                                while (li.hasNext()) {
+                                                    ModelSterileDetail m = (ModelSterileDetail) li.next();
+                                                    xData+= m.getItemname()+","+
+                                                            m.getPrice()+","+
+                                                            m.getDepName2()+","+
+                                                            m.getItemcode()+","+
+                                                            m.getUsageCode()+","+
+                                                            m.getMachineName()+","+
+                                                            m.getSterileRoundNumber()+","+
+                                                            m.getSterileDate()+","+
+                                                            m.getExpireDate()+","+
+                                                            m.getAgeDay()+","+
+                                                            m.getUsr_prepare()+","+
+                                                            m.getUsr_approve()+","+
+                                                            m.getUsr_sterile()+","+
+                                                            m.getQty()+","+
+                                                            m.getID()+";";
                                                 }
+                                                PSK.PrintSticker(CssdSearchSterile.this,3,Label_3,PRINTER_IP,B_ID,Print);
+                                                updatePrintStatus( PSK.getData() );
+                                                PSK.setData("");
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
                                             }
                                         }, DELAY_TIME);
                                     }
